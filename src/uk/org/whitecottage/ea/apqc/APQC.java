@@ -84,6 +84,7 @@ public class APQC {
 			if (index.length == 2 && !index[1].equals("0")) {
 				ProcessDomain domain = new ProcessDomain();
 				domain.setName(getCellValue(row, 2));
+				domain.setDescription("");
 				domain.setDomainId("apqc_" + getCellValue(row, 0));
 				domain.setValueChain(activityId);
 				
@@ -106,6 +107,7 @@ public class APQC {
 				Process process = new Process();
 				process.setProcessId("apqc_" + getCellValue(row, 0));
 				process.setName(getCellValue(row, 2));
+				process.setDescription("");
 				
 				process.getProcessComponent().addAll(parseComponents(row));
 				
@@ -129,6 +131,7 @@ public class APQC {
 				ProcessComponent component = new ProcessComponent();
 				component.setProcessComponentId("apqc_" + getCellValue(row, 0));
 				component.setName(getCellValue(row, 2));
+				component.setDescription("");
 				
 				components.add(component);
 			} else if (index.length < 4) {

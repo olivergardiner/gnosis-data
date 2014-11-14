@@ -40,9 +40,9 @@ public class APQC2XML {
 		
 		FileOutputStream output;
 		try {
-			output = new FileOutputStream(new File(file + ".xml"));
+			output = new FileOutputStream(new File("framework.xml"));
 		} catch (FileNotFoundException e) {
-			System.out.println("Unable to open file: " + file + ".xml");
+			System.out.println("Unable to open file: framework.xml");
 			try {
 				input.close();
 			} catch (IOException e1) {
