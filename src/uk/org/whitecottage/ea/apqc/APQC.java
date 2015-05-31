@@ -8,17 +8,16 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import uk.org.whitecottage.ea.gnosis.jaxb.framework.Activity;
 import uk.org.whitecottage.ea.gnosis.jaxb.framework.BusinessApplications;
 import uk.org.whitecottage.ea.gnosis.jaxb.framework.BusinessOperatingModel;
 import uk.org.whitecottage.ea.gnosis.jaxb.framework.BusinessProcesses;
 import uk.org.whitecottage.ea.gnosis.jaxb.framework.CommonServices;
 import uk.org.whitecottage.ea.gnosis.jaxb.framework.Framework;
 import uk.org.whitecottage.ea.gnosis.jaxb.framework.Infrastructure;
-import uk.org.whitecottage.ea.gnosis.jaxb.framework.PrimaryActivity;
 import uk.org.whitecottage.ea.gnosis.jaxb.framework.ProcessComponent;
 import uk.org.whitecottage.ea.gnosis.jaxb.framework.ProcessDomain;
 import uk.org.whitecottage.ea.gnosis.jaxb.framework.Process;
-import uk.org.whitecottage.ea.gnosis.jaxb.framework.SupportActivity;
 import uk.org.whitecottage.ea.gnosis.jaxb.framework.ValueChain;
 
 public class APQC {
@@ -49,16 +48,14 @@ public class APQC {
 			XSSFSheet sheet = xlsx.getSheetAt(i + 3);
 			String activityId = "apqc_" + getCellValue(sheet, 1, 0);
 			String activityName = getCellValue(sheet, 1, 2);
+			Activity activity = new Activity();
+			activity.setActivityId(activityId);
+			activity.setName(activityName);
+			activity.setDescription("");
 			if (i < 5) {
-				PrimaryActivity activity = new PrimaryActivity();
-				activity.setValueChainId(activityId);
-				activity.setValue(activityName);
-				valueChain.getPrimaryActivity().add(activity);
+				valueChain.getPrimaryActivities().getActivity().add(activity);
 			} else {
-				SupportActivity activity = new SupportActivity();
-				activity.setValueChainId(activityId);
-				activity.setValue(activityName);
-				valueChain.getSupportActivity().add(activity);
+				valueChain.getSupportActivities().getActivity().add(activity);
 			}
 			
 			domains.addAll(parseDomains(sheet, activityId));
