@@ -3,9 +3,6 @@ gnosis-data
 
 Default data set for Gnosis based on APQC et al.
 
-The files in the folder exist/data are default exist-db files that can be accessed with the following credentials:
+The default data set for Gnosis resides in /xlsx/gnosis.xlsx - this can be turned into the JSON files to be imported into Mongo by running XLSX2JSON
 
-admin/gnosis - for administering the exist repository
-gnosis/gnosis - for accessing the repository from the gnosis application
-
-The respository sits within the top-level collection "db/gnosis"
+The process taxonomy tab can be generated from an APQC spreadsheet by running APQC2Gnosis - this allows you to choose the flavour of APQC you require
