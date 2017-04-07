@@ -1,3 +1,5 @@
-/APQC_PCF.xml
-/framework.xml
-bin
+/apqc/*
+/cityplan/
+/json/*
+/target/*
+/xslx/gnosis-*
