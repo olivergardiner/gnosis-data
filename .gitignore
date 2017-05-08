@@ -3,3 +3,6 @@
 /json/*
 /target/*
 /xslx/gnosis-*
+/target/
+/apqc/*
+/json/*
