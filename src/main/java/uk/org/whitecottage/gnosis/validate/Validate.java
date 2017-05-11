@@ -36,10 +36,12 @@ public class Validate {
 	    	List<String> classifications = (List<String>) application.get("logical-apps");
 			List<String> newClassifications = new ArrayList<>();
 	    	
-	    	for (String logicalApplication: classifications) {
-				if (applicationTaxonomy.isClassifier(logicalApplication)) {
-					newClassifications.add(logicalApplication);
-				}
+	    	if (classifications != null) {
+	    		for (String logicalApplication: classifications) {
+					if (applicationTaxonomy.isClassifier(logicalApplication)) {
+						newClassifications.add(logicalApplication);
+					}
+	    		}
 	    	}
 	    	
 	    	Document updateOperation = new Document("$set", new Document("logical-apps", newClassifications));
