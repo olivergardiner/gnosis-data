@@ -42,9 +42,9 @@ public class APQC {
 		
 		for (Row row: combined) {
 			if (row.getCell(0).getCellTypeEnum() == CellType.NUMERIC) {
-				String id = "";
-				String index[] = getCellValue(row, 1).split("\\.");
-				if (index.length == 2 && index[1].equals("0")) {
+				String id;
+				String[] index = getCellValue(row, 1).split("\\.");
+				if (index.length == 2 && "0".equals(index[1])) {
 					id = index[0];
 				} else {
 					id = row.getCell(1).getStringCellValue();
